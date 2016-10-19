@@ -1,0 +1,23 @@
+{
+  "name": "GitHub Downloader",
+  "description": "Download single files from GitHub",
+  "version": "0.1",
+  "permissions": ["https://github.com/*"],
+  "background": {
+    "scripts": ["jqueryLib.js","background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "css":["style.css"],
+      "js": ["jqueryLib.js", "content.js"]
+    }
+  ],
+   "icons": {
+          "16": "icon16.png",
+          "48": "icon48.png",
+          "128": "icon128.png"
+        },
+ 
+  "manifest_version": 2
+}
