@@ -1,10 +1,10 @@
 {
   "name": "GitHub Downloader",
   "description": "Download single files from GitHub",
-  "version": "0.1",
-  "permissions": ["https://github.com/*"],
+  "version": "0.2",
+  "permissions": ["downloads", "https://github.com/*"],
   "background": {
-    "scripts": ["jqueryLib.js","background.js"]
+    "scripts": ["jqueryLib.js", "background.js"]
   },
   "content_scripts": [
     {
@@ -19,5 +19,6 @@
           "128": "icon128.png"
         },
  
-  "manifest_version": 2
+  "manifest_version": 2,
+  "author":"Turbatu Dumitru Titus <titus.tur.dum@gmail.com>"
 }

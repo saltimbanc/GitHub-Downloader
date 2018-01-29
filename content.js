@@ -1,4 +1,4 @@
-$("body").on("click","td.icon:has(svg.octicon-file-text)", function(){
+$("body").on("click","td.icon:has(svg.octicon-file)", function(){
 	download($(this).parent().find("td.content a").prop("href").replace("/blob/","/raw/"));
 });
 
