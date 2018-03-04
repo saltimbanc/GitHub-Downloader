@@ -3,14 +3,18 @@ $("body").on("click","td.icon:has(svg.octicon-file)", function(){
 });
 
 
-$("*").on("pjax:end", function() {
+$("*").on("pjax:end", addDownloadBtn);
+
+function addDownloadBtn(){
 	if($("#raw-url").length && !$("#download-raw-url").length){
 		$("<a class='btn btn-sm BtnGroup-item' id='download-raw-url'>Download</a>").click(function(){
 			download($("#raw-url").prop("href"));
 		}).insertBefore($("#raw-url"));
 	}
-});
+}
 
 function download(url){
 	chrome.runtime.sendMessage({cmd : "download", url: url});
 }
+
+addDownloadBtn();
