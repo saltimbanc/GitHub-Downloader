@@ -4,21 +4,20 @@
   "version": "0.2",
   "permissions": ["downloads", "https://github.com/*"],
   "background": {
-    "scripts": ["jqueryLib.js", "background.js"]
+    "scripts": ["background.js"]
   },
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
       "css":["style.css"],
-      "js": ["jqueryLib.js", "content.js"]
+      "js": ["content.js"]
     }
   ],
    "icons": {
-          "16": "icon16.png",
-          "48": "icon48.png",
-          "128": "icon128.png"
-        },
- 
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "manifest_version": 2,
   "author":"Turbatu Dumitru Titus <titus.tur.dum@gmail.com>"
 }
