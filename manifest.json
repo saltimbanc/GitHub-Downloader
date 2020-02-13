@@ -1,7 +1,7 @@
 {
   "name": "GitHub Downloader",
   "description": "Download single files from GitHub",
-  "version": "2",
+  "version": "2.1",
   "permissions": ["downloads", "https://github.com/*", "https://raw.githubusercontent.com/*"],
   "background": {
     "scripts": ["extensionToMIME.js", "background.js"]

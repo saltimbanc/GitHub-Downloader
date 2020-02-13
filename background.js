@@ -1,7 +1,7 @@
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if(request.cmd == "download"){
     const { url } = request; 
-    const filename = decodeURIComponent(url.match(/(?!\/)[^\/]+$/).shift());
+    const filename = decodeURIComponent(url.match(/(?!\/|\.)[^\/]+$/).shift());
     const extension = filename.replace(/.*\.(?=[^.]+$)/, "");
     const mime = EXTENSION_TO_MIME[extension] || `text/${extension}`;
 
