@@ -1,5 +1,5 @@
 svg.octicon-file:hover{
-	filter : drop-shadow(1px 1px 0px black);
+	filter : drop-shadow(3px 3px 0px black);
 	cursor:pointer;
 }
 

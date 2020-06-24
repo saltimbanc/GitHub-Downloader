@@ -14,21 +14,25 @@ function addDownloadBtn() {
 }
 
 function download(url){
-	chrome.runtime.sendMessage({
+  chrome.runtime.sendMessage({
     cmd : "download", url: url
   });
 }
 
 addDownloadBtn();
 
+const parentMatches = (e, s) => {
+  return e && e.parentElement && e.parentElement.matches(s);
+};
+
+const selector = '[role=row] [role=gridcell].mr-3.flex-shrink-0';
+
 document.addEventListener("click", event => {
-  if (event.target && event.target.matches && event.target.matches("td, path, svg")) {
-    const cell = event.target.closest && event.target.closest("td");
-    if (cell && cell.matches && cell.matches('td.icon')
-      && cell.querySelector('svg.octicon-file')) {
-      const { parentElement: parent } = cell;
-      const a = parent && parent.querySelector("td.content a");
-      const { href } = (a || {});
+  if (event.target && (event.target.matches(selector) || parentMatches(event.target, selector) || parentMatches(event.target.parentElement, selector))) {
+    const row = event.target.closest('[role=row]');
+    if (row) {
+      const anchor = row.querySelector('[role=rowheader] a');
+      const { href } = (anchor || {});
       if (href) {
         download(href.replace("/blob/","/raw/"));
       }
