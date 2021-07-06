@@ -41,3 +41,20 @@ document.addEventListener("click", event => {
 });
 
 document.addEventListener('pjax:end', addDownloadBtn);
+
+const hover = (e) => {
+  if (e && e.target && e.target.matches && e.target.matches('svg.octicon-file')) {
+    e.target.style.opacity = 0;
+    e.target.style.cursor = 'pointer';
+    e.target.parentElement.style.backgroundImage = 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAyElEQVQ4jeXSO2rDQBSF4S/CGBUpgxeRIhhDusSNC5NdzbZSBGFsd2msZYRAGi8gha7kiUBScOsDw8Dc85+582BMyU6yG7PMRgNYT9QVU4YbCPh7icke99hKvnq1Bd5xlrwOdVBiiSqAHK6iVuZAP+ANNR4DaFXFWh2eTndSt0s7P+ADT73wGhvJd+4vcMRJim4awyaAIbjACccCq9htnp25DfmMcYEbzYNZDX/lBngerIfygLK7h2l1L5EH/Pwb73VwwMs1MA6/vwUpZJgDfxwAAAAASUVORK5CYII=")';
+    e.target.parentElement.style.backgroundSize = '16px 16px';
+    e.target.parentElement.style.backgroundRepeat = 'no-repeat';
+    e.target.addEventListener('mouseleave', e => {
+      e.target.style.opacity = 1;
+      e.target.parentElement.style.backgroundImage = 'none';
+      e.target.parentElement.style.backgroundSize = 'initial';
+    }, { once: true });
+  }
+}
+
+document.addEventListener('mouseover', hover);

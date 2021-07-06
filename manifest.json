@@ -1,7 +1,7 @@
 {
   "name": "GitHub Downloader",
   "description": "Download single files from GitHub",
-  "version": "2.2",
+  "version": "2.3",
   "permissions": ["downloads", "https://github.com/*", "https://raw.githubusercontent.com/*"],
   "background": {
     "scripts": ["extensionToMIME.js", "background.js"]
@@ -9,7 +9,6 @@
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
-      "css":["style.css"],
       "js": ["content.js"]
     }
   ],
